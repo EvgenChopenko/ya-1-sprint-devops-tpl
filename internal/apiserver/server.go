@@ -30,9 +30,7 @@ func newServer(store *storage.Storage, metric *metric.Metric) *server{
 func(s * server) configureRoute(){
 	listMetric := metric.NewMetric().GetMetrics()
 	for i := 0; i < len(listMetric); i++ {
-		
 		s.router.HandleFunc(fmt.Sprintf("/update/%s",listMetric[i].GetNameMetric()), s.handleWtiteMetric())
-		fmt.Println(fmt.Sprintf("Create Handler /update/%s ",listMetric[i].GetNameMetric() ))
 	}
 	
 	
