@@ -36,3 +36,7 @@ func(c* counter) GetType() string{
 func(c* counter) GetFullMetric() string{
 	return fmt.Sprintf("%s/%s/%s",c.typeMetrix,c.name,strconv.FormatUint(c.value,10) )
 }
+
+func(c* counter) GetNameMetric() string{
+	return fmt.Sprintf("%s/%s/",c.typeMetrix,c.name )
+}

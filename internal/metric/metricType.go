@@ -6,4 +6,5 @@ type metricType interface{
 	GetName() string
 	GetType() string
 	GetFullMetric() string
+	GetNameMetric() string
 }

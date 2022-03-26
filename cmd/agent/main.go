@@ -26,18 +26,14 @@ func main() {
 		syscall.SIGQUIT)
 	for  {
 		c := make(chan *m.Metric) // Делает канал для связи
-		b := make(chan bool)
+		//b := make(chan bool)
 		go mon.Read(c)	
 
 		//time.Sleep(time.Second)
-		go sender.ReadPush((time.Duration(10) * time.Second), store, b)
+		go sender.ReadPush((time.Duration(10) * time.Second), store)
 		select {
 			case metric := <-c:
 				store.Append(metric)
-			case status := <-b:
-				if status {
-					fmt.Println("Metric Sended")
-				}
 			case <-sigc:
 				fmt.Println("Close")
 				return

@@ -54,6 +54,18 @@ func  NewMetric() *Metric{
 }
 
 
+func NewCustomMetric( mtrT metricType) *Metric{
+	
+	m := &Metric{
+		list: []metricType{ 
+			mtrT,
+		},
+	}
+	return m 
+
+}
+
+
 func (m *Metric)Update(rtm *runtime.MemStats) {
 	for i := 0; i < len(m.list); i++ {
 		if m.list[i].GetName() == "RandomValue"{
@@ -89,11 +101,21 @@ func (m *Metric)Update(rtm *runtime.MemStats) {
 	
 }
 
-func( m *Metric) GetMetriList() []string  {
+func( m *Metric) GetMetricList() []string  {
 	var  array []string
 
 	for i := 0; i < len(m.list); i++ {
 		array = append(array, m.list[i].GetFullMetric())
+	}
+
+	return array
+}
+
+func (m *Metric) GetMetrics() []metricType{
+	var  array []metricType
+
+	for i := 0; i < len(m.list); i++ {
+		array = append(array, m.list[i])
 	}
 
 	return array

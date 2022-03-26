@@ -40,3 +40,7 @@ func(g* gauge) GetType() string{
 func(g* gauge) GetFullMetric() string{
 	return fmt.Sprintf("%s/%s/%s",g.typeMetrix,g.name,strconv.FormatUint(g.value,10) )
 }
+
+func(g* gauge) GetNameMetric() string{
+	return fmt.Sprintf("%s/%s/",g.typeMetrix,g.name )
+}
