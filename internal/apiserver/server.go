@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/EvgenChopenko/ya-1-sprint-devops-tpl/internal/metric"
-	"github.com/EvgenChopenko/ya-1-sprint-devops-tpl/internal/metric/runtimeMetric"
+	"github.com/EvgenChopenko/ya-1-sprint-devops-tpl/internal/metric/runtimemetric"
 	"github.com/EvgenChopenko/ya-1-sprint-devops-tpl/internal/storage"
 )
 
@@ -68,12 +68,12 @@ func(s *server) handleWtiteMetric() http.HandlerFunc {
 		}
 	
 	if urlParametrs[2] == "gauge"{
-		tmt := runtimeMetric.NewGauge(urlParametrs[3])
+		tmt := runtimemetric.NewGauge(urlParametrs[3])
 		tmt.Update(uint64(value))
 		s.store.Append(metric.NewCustomMetric(tmt))
 		w.WriteHeader(http.StatusCreated)
 	}else if urlParametrs[2] == "counter" {
-		tmt := runtimeMetric.NewCounter(urlParametrs[3])
+		tmt := runtimemetric.NewCounter(urlParametrs[3])
 		tmt.Update(value)
 		s.store.Append(metric.NewCustomMetric(tmt))
 		w.WriteHeader(http.StatusCreated)

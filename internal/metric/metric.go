@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"runtime"
 
-	"github.com/EvgenChopenko/ya-1-sprint-devops-tpl/internal/metric/runtimeMetric"
+	"github.com/EvgenChopenko/ya-1-sprint-devops-tpl/internal/metric/runtimemetric"
 )
 
 type  Metric struct {
@@ -15,35 +15,35 @@ type  Metric struct {
 func  NewMetric() *Metric{
 	m := &Metric{
 		list: []metricType{ 
-			runtimeMetric.NewGauge("Alloc"),
-			runtimeMetric.NewGauge("BuckHashSys"),
-			runtimeMetric.NewGauge("Frees"),
-			runtimeMetric.NewGauge("GCCPUFraction"),
-			runtimeMetric.NewGauge("GCSys"),
-			runtimeMetric.NewGauge("HeapAlloc"),
-			runtimeMetric.NewGauge("HeapIdle"),
-			runtimeMetric.NewGauge("HeapInuse"),
-			runtimeMetric.NewGauge("HeapObjects"),
-			runtimeMetric.NewGauge("HeapReleased"),
-			runtimeMetric.NewGauge("HeapSys"),
-			runtimeMetric.NewGauge("LastGC"),
-			runtimeMetric.NewGauge("Lookups"),
-			runtimeMetric.NewGauge("MCacheInuse"),
-			runtimeMetric.NewGauge("MCacheSys"),
-			runtimeMetric.NewGauge("MSpanInuse"),
-			runtimeMetric.NewGauge("MSpanSys"),
-			runtimeMetric.NewGauge("Mallocs"),
-			runtimeMetric.NewGauge("NextGC"),
-			runtimeMetric.NewGauge("NumForcedGC"),
-			runtimeMetric.NewGauge("NumGC"),
-			runtimeMetric.NewGauge("OtherSys"),
-			runtimeMetric.NewGauge("PauseTotalNs"),
-			runtimeMetric.NewGauge("StackInuse"),
-			runtimeMetric.NewGauge("StackSys"),
-			runtimeMetric.NewGauge("Sys"),
-			runtimeMetric.NewGauge("TotalAlloc"),
-			runtimeMetric.NewCounter("PollCount"),
-			runtimeMetric.NewGauge("RandomValue"),
+			runtimemetric.NewGauge("Alloc"),
+			runtimemetric.NewGauge("BuckHashSys"),
+			runtimemetric.NewGauge("Frees"),
+			runtimemetric.NewGauge("GCCPUFraction"),
+			runtimemetric.NewGauge("GCSys"),
+			runtimemetric.NewGauge("HeapAlloc"),
+			runtimemetric.NewGauge("HeapIdle"),
+			runtimemetric.NewGauge("HeapInuse"),
+			runtimemetric.NewGauge("HeapObjects"),
+			runtimemetric.NewGauge("HeapReleased"),
+			runtimemetric.NewGauge("HeapSys"),
+			runtimemetric.NewGauge("LastGC"),
+			runtimemetric.NewGauge("Lookups"),
+			runtimemetric.NewGauge("MCacheInuse"),
+			runtimemetric.NewGauge("MCacheSys"),
+			runtimemetric.NewGauge("MSpanInuse"),
+			runtimemetric.NewGauge("MSpanSys"),
+			runtimemetric.NewGauge("Mallocs"),
+			runtimemetric.NewGauge("NextGC"),
+			runtimemetric.NewGauge("NumForcedGC"),
+			runtimemetric.NewGauge("NumGC"),
+			runtimemetric.NewGauge("OtherSys"),
+			runtimemetric.NewGauge("PauseTotalNs"),
+			runtimemetric.NewGauge("StackInuse"),
+			runtimemetric.NewGauge("StackSys"),
+			runtimemetric.NewGauge("Sys"),
+			runtimemetric.NewGauge("TotalAlloc"),
+			runtimemetric.NewCounter("PollCount"),
+			runtimemetric.NewGauge("RandomValue"),
 		},
 
 	}
