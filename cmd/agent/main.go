@@ -15,7 +15,7 @@ import (
 
 func main() {
     metric := m.NewMetric() 
-	interval := time.Duration(2) * time.Second
+	interval := 2 * time.Second
 	store := storage.NewStorage()
 	mon := monitor.New(interval,metric)
 	sigc := make(chan os.Signal, 1)
@@ -26,11 +26,10 @@ func main() {
 		syscall.SIGQUIT)
 	for  {
 		c := make(chan *m.Metric) // Делает канал для связи
-		//b := make(chan bool)
 		go mon.Read(c)	
+		time.Sleep(1 *time.Second)
 
-		//time.Sleep(time.Second)
-		go sender.ReadPush((time.Duration(10) * time.Second), store)
+		go sender.ReadPush((10 * time.Second), store)
 		select {
 			case metric := <-c:
 				store.Append(metric)

@@ -21,3 +21,8 @@ func (s *Storage) Append(row *metric.Metric){
 }
 
 
+func (s *Storage) Remove (i int) {
+	
+    s.Rows[i] = s.Rows[len(s.Rows)-1]
+    s.Rows =  s.Rows[:len(s.Rows)-1]
+}

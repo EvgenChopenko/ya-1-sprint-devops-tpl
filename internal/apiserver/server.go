@@ -32,6 +32,7 @@ func(s * server) configureRoute(){
 	listMetric := metric.NewMetric().GetMetrics()
 	for i := 0; i < len(listMetric); i++ {
 		s.router.HandleFunc(fmt.Sprintf("/update/%s",listMetric[i].GetNameMetric()), s.handleWtiteMetric())
+		fmt.Println(fmt.Sprintf("/update/%s",listMetric[i].GetNameMetric()))
 	}
 	
 	
@@ -49,7 +50,6 @@ func(s *server) handleWtiteMetric() http.HandlerFunc {
         http.Error(w, "Only Post requests are allowed!", http.StatusMethodNotAllowed)
         return
     }
-	fmt.Println( r.Header.Get("Content-Type"))
 	if r.Header.Get("Content-Type") != "text/plain"{
 		http.Error(w, "Only Content-Type text/plan are allowed!", http.StatusRequestHeaderFieldsTooLarge)
         return
